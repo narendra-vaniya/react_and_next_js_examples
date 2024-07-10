@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pure React JS - Part 2</title>
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+      }
+
+      .like_btn {
+        width: 52px;
+        height: 52px;
+        border-radius: 1000px;
+        background-color: blueviolet;
+        border: none;
+        padding-bottom: 6px;
+        font-size: 22px;
+        position: absolute;
+        bottom: 5%;
+        right: 5%;
+      }
+
+      .like_btn:active {
+        transform: scale(1.1);
+        transition: all;
+        transition-duration: 100ms;
+      }
+
+      .dislike_btn {
+        width: 52px;
+        height: 52px;
+        border-radius: 1000px;
+        background-color: blueviolet;
+        border: none;
+        padding-bottom: 3px;
+        font-size: 22px;
+        position: absolute;
+        bottom: 5%;
+        left: 5%;
+      }
+
+      .dislike_btn:active {
+        transform: scale(1.1);
+        transition: all;
+        transition-duration: 100ms;
+      }
+
+      h1 {
+        font-size: 126px;
+        height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <!-- React JS Script -->
+    <script
+      src="https://unpkg.com/react@18/umd/react.production.min.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+      crossorigin
+    ></script>
+
+    <!-- Babel script for use JSX-->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      // Create element without JSX
+      function LikeBtn(props) {
+        return React.createElement(
+          "button",
+          { className: "like_btn", onClick: props.onClick },
+          "👍🏻"
+        );
+      }
+
+      function DisLikeBtn(props) {
+        return React.createElement(
+          "button",
+          { className: "dislike_btn", onClick: props.onClick },
+          "👎🏻"
+        );
+      }
+
+      // Create element with JSX
+      function MyApp() {
+        const [counter, setCounter] = React.useState(0);
+
+        const likeBtnHandler = () => {
+          setCounter(counter + 1);
+        };
+
+        function disLikeBtnHandler() {
+          setCounter((e) => e - 1);
+        }
+        return (
+          <>
+            <h1>{counter}</h1>
+            <LikeBtn onClick={likeBtnHandler} />
+            <DisLikeBtn onClick={disLikeBtnHandler} />
+          </>
+        );
+      }
+
+      const root = document.getElementById("root");
+      const rootElement = ReactDOM.createRoot(root);
+      rootElement.render(<MyApp />);
+    </script>
+  </body>
+</html>
