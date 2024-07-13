@@ -98,12 +98,12 @@ input:focus .input_wrapper {
 
 .password_rating {
   font-size: clamp(10px, 1vw, 12px);
-  background-color: rgb(178, 163, 254);
+  
   padding: 4px min(12px, 1.5vw) 6px min(12px, 1.5vw);
   border-radius: 8px;
   text-align: center;
   vertical-align: middle;
-  color: rgb(255, 255, 255);
+  color: rgb(18, 0, 53);
 }
 
 .regenerate_btn {
