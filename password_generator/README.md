@@ -1,3 +1,7 @@
+# App Demo
+
+<img title="a title" alt="Alt text" src="./public/app_demo.jpg">
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

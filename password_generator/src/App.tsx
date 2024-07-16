@@ -103,6 +103,7 @@ function App() {
           Create strong and secure passwords to keep your account safe online.
         </h2>
       </div>
+      <div className="parent_wrapper">
       <div className="password_generator_box">
         <div className="input_row">
           <div className="input_wrapper">
@@ -182,6 +183,7 @@ function App() {
             </span>
           </div>
         </div>
+      </div>
       </div>
     </>
   );

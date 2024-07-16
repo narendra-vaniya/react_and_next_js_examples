@@ -9,9 +9,10 @@
 }
 body {
   width: 100vw;
+  height: 100vh;
   overflow: hidden;
   font-size: clamp(14px, 1.6vw, 18px);
-  background-color: rgb(231, 226, 255);
+  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
 }
 
 .hero_section {
@@ -36,7 +37,9 @@ body {
   line-height: 1.2rem;
   margin: auto;
 }
-
+.parent_wrapper {
+  padding: 0px 16px;
+}
 .password_generator_box {
   max-width: 640px;
   border: 1px solid rgb(209, 200, 255);
@@ -98,7 +101,7 @@ input:focus .input_wrapper {
 
 .password_rating {
   font-size: clamp(10px, 1vw, 12px);
-  
+
   padding: 4px min(12px, 1.5vw) 6px min(12px, 1.5vw);
   border-radius: 8px;
   text-align: center;
@@ -146,6 +149,7 @@ input:focus .input_wrapper {
 
 .characters_used_box {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   gap: 12px;
   padding: 8px 10px;
