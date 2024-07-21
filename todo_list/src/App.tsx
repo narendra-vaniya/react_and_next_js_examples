@@ -1,36 +1,54 @@
 import { useState } from "react";
-import { getTodaysDate } from "./utiles/date_utile";
-import { categories } from "./utiles/app_constant";
+import TaskCategories from "./components/task_categories/task_categories";
+import TaskListView from "./components/task_list/task_list_view";
+import AppHeader from "./components/app_header/app_header";
+import { useDBLocalStorage } from "./hooks/db_local_storage_hook";
+import AddNewTaskFrom from "./components/add_or_new_from/add_or_update_from";
+import { TaskType } from "./types/task.type";
 
 function App() {
   const [selectedCategories, setCategories] = useState("today_task");
+  const [tasks, addNewTask, updateTask] = useDBLocalStorage("all_task");
+
+  const [isOpenNewTaskDialog, toggleNewTaskDialog] = useState(false);
+  const [selectedTask, setSelectedTask] = useState<TaskType | null>(null);
+  function onNewOrEditTaskBtnClick(e: TaskType | null) {
+    setSelectedTask((_) => e);
+    toggleNewTaskDialog((e) => !e);
+  }
+
+  ///
+  function onToggleNewTaskDialog() {
+    toggleNewTaskDialog((e) => !e);
+  }
+
+  ///
+  function onCategorySelects(id: string) {
+    setCategories(id);
+  }
 
   return (
     <>
       <div className="app">
-        <div className="app_header">
-          <div className="app_header_left_sec">
-            <p className="app_header_left_title">Good Morning, Narnedra</p>
-            <p className="app_header_left_sub_title">{getTodaysDate()}</p>
-          </div>
-          <button className="new_task_btn">New Task</button>
-        </div>
+        <AppHeader onAddNewTaskBtnClick={() => onNewOrEditTaskBtnClick(null)} />
         <div className="app_body">
-          <div className="task_categories_list_row">
-            {categories.map((e) => (
-              <p
-                key={e.id}
-                className={
-                  selectedCategories === e.id
-                    ? `selected_categories`
-                    : `unselected_categories`
-                }
-                onClick={() => setCategories(e.id)}
-              >
-                {e.text}
-              </p>
-            ))}
-          </div>
+          <TaskCategories
+            onCategorySelect={onCategorySelects}
+            selectedCategories={selectedCategories}
+          />
+          <TaskListView
+            tasks={tasks}
+            selectedCategories={selectedCategories}
+            onEditTaskBtnClick={(e) => onNewOrEditTaskBtnClick(e)}
+          />
+          <AddNewTaskFrom
+            onCloseBtnClick={onToggleNewTaskDialog}
+            isOpenNewTaskDialog={isOpenNewTaskDialog}
+            addNewTask={addNewTask}
+            updateTask={updateTask}
+            key={Date.now().toLocaleString()}
+            task={selectedTask}
+          />
         </div>
       </div>
     </>

@@ -1,0 +1,81 @@
+.add_new_task_dialog_show {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  backdrop-filter: blur(7px);
+  animation: popupOpen 200ms;
+}
+.add_new_task_dialog_hide {
+  display: none;
+}
+
+@keyframes popupOpen {
+  from {
+    scale: 0;
+  }
+  to {
+    scale: 1;
+  }
+}
+.add_new_task_inner_dialog {
+  position: absolute;
+  width: 320px;
+  min-height: 400px;
+  align-self: center;
+  border-radius: 12px;
+  border: 1px solid rgb(198, 204, 211);
+  margin: auto;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.add_new_task_inner_title_row {
+  padding: 12px;
+  border-bottom: 1px solid #e7e7e7;
+  display: flex;
+  flex-direction: row;
+}
+.add_new_task_inner_title {
+  font-size: 16px;
+  font-weight: 600;
+}
+.add_new_task_inner_subtitle {
+  font-size: 12px;
+  color: #aeb2b9;
+}
+
+.add_new_task_form {
+  padding: 12px;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.submit_btn {
+  margin-top: 12px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  padding: 12px 18px;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: #0863fe;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+.submit_btn:active {
+  transform: scale(0.99);
+}
+.submit_btn:hover {
+  background-color: #0253de;
+  color: #ffffff;
+}

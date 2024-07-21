@@ -1,0 +1,19 @@
+.task_categories_list_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 12px;
+  padding: 0px 8px;
+  margin-bottom: 4px;
+}
+
+.selected_categories {
+  color: #0863fe;
+  cursor: pointer;
+  font-weight: 700;
+}
+.unselected_categories {
+  color: #aeb2b9;
+  cursor: pointer;
+  font-weight: 600;
+}

@@ -1,0 +1,51 @@
+.app_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: middle;
+  border-bottom: 1px solid #cecece;
+  padding: 12px;
+}
+.app_header_left_sec {
+  display: flex;
+  flex-direction: column;
+}
+.app_header_left_title {
+  font-size: clamp(14px, 1.8vw, 16px);
+  font-weight: 700;
+}
+.app_header_left_sub_title {
+  color: #aeb2b9;
+  font-size: clamp(12px, 1.8vw, 14px);
+}
+
+.new_task_btn {
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  padding: 8px 18px;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: #e2eaf8;
+  color: #0e2435;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  align-self: center;
+}
+.new_task_btn:active {
+  transform: scale(0.9);
+}
+.new_task_btn:hover {
+  background-color: #0863fe;
+  color: #ffffff;
+}
+.new_task_btn::before {
+  content: "+ ";
+  font-size: 16px;
+
+  cursor: pointer;
+  pointer-events: none;
+}

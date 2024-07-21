@@ -1,18 +1,24 @@
-export const categories = [
+import { DropdownType } from "../types/dropdown.type";
+
+export const categories: DropdownType[] = [
   {
     id: "today_task",
-    text: "Today's Task",
+    title: "Today's Task",
+    value: "today_task",
   },
   {
     id: "upcoming",
-    text: "Upcoming",
+    title: "Upcoming",
+    value: "upcoming",
   },
   {
     id: "closed",
-    text: "Closed",
+    title: "Closed",
+    value: "closed",
   },
   {
     id: "archived",
-    text: "Archived",
+    title: "Archived",
+    value: "archived",
   },
 ];
